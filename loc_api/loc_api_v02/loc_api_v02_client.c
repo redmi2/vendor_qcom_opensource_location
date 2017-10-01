@@ -925,6 +925,7 @@ static void locClientIndCb
       LOC_LOGE("%s:%d]: memory allocation failed\n", __func__, __LINE__);
       return;
     }
+    memset(indBuffer, 0, indSize);
 
     rc = QMI_NO_ERR;
 
@@ -1362,7 +1363,7 @@ static bool validateRequest(
       break;
     }
 
-    case QMI_LOC_INJECT_SUBSCRIBER_ID_IND_V02:
+    case QMI_LOC_INJECT_SUBSCRIBER_ID_REQ_V02:
     {
       *pOutLen = sizeof(qmiLocInjectSubscriberIDReqMsgT_v02);
       break;
